@@ -3,6 +3,7 @@ import Item from './Item';
 import './ItemsListContainer.css';
 
 const ItemsListContainer = ({greeting}) => {
+  
   return (
     <div>
       <h3>Estos son nuestros {greeting}</h3>

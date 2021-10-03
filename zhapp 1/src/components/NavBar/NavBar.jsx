@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import CartWidget from '../Assets/CartWidget';
 
-const NavBar = () => {
+const NavBar = (qAdd) => {
   return (
     <Navbar collapseOnSelect expand="lg" bg="secondary" variant="dark">
       <Container>
@@ -17,7 +17,7 @@ const NavBar = () => {
             <Nav.Link href="#contacto">Contacto</Nav.Link>
           </Nav>
         </Navbar.Collapse>
-        <CartWidget />
+        <CartWidget qAdd={qAdd}/>
       </Container>
     </Navbar>
   )
