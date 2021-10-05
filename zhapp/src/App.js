@@ -1,14 +1,14 @@
 import './App.css';
-import NavBar from './components/NavBar/NavBar';
-import ItemsListContainer from './components/Items/ItemsListContainer';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Hero from './components/Hero/Hero';
 
 
 function App() {
+  
+
   return (
     <div className="App">
-     <NavBar />
-     <ItemsListContainer greeting = "productos destacados" />
+      <Hero />
     </div>
   );
 }
