@@ -1,14 +1,22 @@
+import React, { useState }from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Hero from './components/Hero/Hero';
+import ItemsListContainer from './components/Items/ItemsListContainer';
+
 
 
 function App() {
-  
+  const [qBuy, setqBuy] = useState(0);
+  const addCart = (qty) => {
+    setqBuy (qBuy+qty)
+    alert("Agregado al carrito")
+    console.log(qBuy);
+
+  }
 
   return (
     <div className="App">
-      <Hero />
+      <ItemsListContainer greeting = "productos destacados" addCart={addCart} qBuy={qBuy}/>
     </div>
   );
 }
