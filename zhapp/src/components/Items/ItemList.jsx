@@ -1,24 +1,44 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import Item from './Item';
+import Loader from "react-loader-spinner";
+
 
 const ItemList = ({addCart}) => {
-  async function showItems () {
-    const response = await fetch('../Assets/products.json');
-    const items = await response.json();
-    console.log(items);
-    return items;
+  const [items, setitems] = useState([]);
+  const [loading, setloading] = useState(true)
+
+  const showItems = async () => {
+    
+    try {
+      const res = await axios.get("./products.json");
+      const resArray = res.data;
+      setitems(resArray);
+    } catch (error) {
+      console.log(error);
+    }
   }
-  showItems()
+  
   useEffect(()=>{
-    showItems.then((resp)=>console.log(resp))
-    })
-
+    showItems();
+    setTimeout( setloading(false), 3000 )   
+  }, [])
+  
   return (
-    <div className="especial">
-      <Item addCart={addCart}/>
-
-      sale esto??
-    </div>
+    <>
+      {loading 
+      ? 
+        <Loader
+        type="Puff"
+        color="#00BFFF"
+        height={100}
+        width={100}
+        timeout={3000} //3 secs
+        /> 
+      : 
+      <Item addCart={addCart} items={items}/>}
+      
+    </>
   );
 }
 

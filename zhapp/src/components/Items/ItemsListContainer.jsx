@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from '../Layout/Layout';
-import ItemList from './Item';
+import ItemList from './ItemList';
 import './ItemsListContainer.css';
 
 const ItemsListContainer = ({greeting, addCart, qBuy}) => {

@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { ButtonGroup, Button } from 'react-bootstrap';
 import { BagDash, BagPlus } from 'react-bootstrap-icons';
 
-const ItemCount = ({onAdd}) => {
-  let stock = 10
+const ItemCount = ({onAdd, stock}) => {
   let initial = 0
   if (stock>0) {initial = 1};
   

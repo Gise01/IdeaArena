@@ -9,9 +9,6 @@ function App() {
   const [qBuy, setqBuy] = useState(0);
   const addCart = (qty) => {
     setqBuy (qBuy+qty)
-    alert("Agregado al carrito")
-    console.log(qBuy);
-
   }
 
   return (
