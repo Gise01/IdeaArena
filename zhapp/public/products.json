@@ -4,7 +4,7 @@
     "height":0.60,
     "width":0.60,
     "price":280,
-    "type":"revestimiento",
+    "type":"Revestimiento",
     "stock":50,
     "image":"./img/Piel Naranja revestimiento.jpg"
   },
@@ -13,7 +13,7 @@
     "height":0.60,
     "width":0.60,
     "price":280,
-    "type":"revestimiento",
+    "type":"Revestimiento",
     "stock":50,
     "image":"./img/Sol revestimiento.jpg"
   },
@@ -22,7 +22,7 @@
     "height":0.60,
     "width":0.60,
     "price":280,
-    "type":"revestimiento",
+    "type":"Revestimiento",
     "stock":50,
     "image":"./img/Sol con Marco revestimiento.jpg"
   },
@@ -31,7 +31,7 @@
     "height":0.60,
     "width":0.60,
     "price":280,
-    "type":"revestimiento",
+    "type":"Revestimiento",
     "stock":50,
     "image":"./img/Ubeda revestimiento.jpg"
   },
@@ -40,7 +40,7 @@
     "height":0.60,
     "width":0.60,
     "price":280,
-    "type":"revestimiento",
+    "type":"Revestimiento",
     "stock":50,
     "image":"./img/Mediterraneo revestimiento.jpg"
   },
@@ -49,7 +49,7 @@
     "height":0.60,
     "width":0.60,
     "price":280,
-    "type":"revestimiento",
+    "type":"Revestimiento",
     "stock":50,
     "image":"./img/Liso revestimiento.jpg"
   },
@@ -58,7 +58,7 @@
     "height":0.28,
     "width":0.56,
     "price":175,
-    "type":"revestimiento",
+    "type":"Revestimiento",
     "stock":50,
     "image":"./img/Travertino revestimiento.jpg"
   },
@@ -67,7 +67,7 @@
     "height":0.28,
     "width":0.56,
     "price":175,
-    "type":"revestimiento",
+    "type":"Revestimiento",
     "stock":50,
     "image":"./img/Piedra revestimiento.jpg"
   },
@@ -76,7 +76,7 @@
     "height":0.56,
     "width":0.56,
     "price":335,
-    "type":"revestimiento",
+    "type":"Revestimiento",
     "stock":50,
     "image":"./img/Pizarra revestimiento.jpg"
   },
@@ -85,7 +85,7 @@
     "height":0.56,
     "width":0.56,
     "price":335,
-    "type":"revestimiento",
+    "type":"Revestimiento",
     "stock":50,
     "image":"./img/Ladrillo revestimiento.jpg"
   },
@@ -94,7 +94,7 @@
     "height":0.60,
     "width":0.60,
     "price":335,
-    "type":"revestimiento",
+    "type":"Revestimiento",
     "stock":50,
     "image":"./img/Alicante revestimiento.jpg"
   },
@@ -103,7 +103,7 @@
     "height":0.60,
     "width":0.60,
     "price":335,
-    "type":"cielorraso",
+    "type":"Cielorraso",
     "stock":50,
     "image":"./img/Sol cielorraso.jpg"
   },
@@ -112,7 +112,7 @@
     "height":0.60,
     "width":0.60,
     "price":335,
-    "type":"cielorraso",
+    "type":"Cielorraso",
     "stock":50,
     "image":"./img/Mediterraneo cielorraso.jpg"
   },
@@ -121,29 +121,11 @@
     "height":0.60,
     "width":0.60,
     "price":335,
-    "type":"cielorraso",
+    "type":"Cielorraso",
     "stock":50,
     "image":"./img/Alicante cielorraso.jpg"
   },
   {"id":15,
-    "name":"Moldura 9",
-    "height":0.04,
-    "width":0.05,
-    "price":195,
-    "type":"Moldura",
-    "stock":50,
-    "image":"./img/Moldura 9 diseño.jpg"
-  },
-  {"id":16,
-    "name":"Moldura 13",
-    "height":0.04,
-    "width":0.05,
-    "price":195,
-    "type":"Moldura",
-    "stock":50,
-    "image":"./img/Moldura 13 diseño.jpg"
-  },
-  {"id":16,
     "name":"Friso 1",
     "height":0.04,
     "width":0.01,
@@ -152,7 +134,7 @@
     "stock":50,
     "image":"./img/Friso 1 diseño.jpg"
   },
-  {"id":18,
+  {"id":16,
     "name":"Friso 2",
     "height":0.04,
     "width":0.01,
@@ -161,7 +143,7 @@
     "stock":50,
     "image":"./img/Friso 2 diseño.jpg"
   },
-  {"id":19,
+  {"id":17,
     "name":"Adhesivo",
     "qty":30,
     "price":1100,
@@ -170,7 +152,7 @@
     "stock":50,
     "image":"./img/Adhesivo.jpg"
   },
-  {"id":20,
+  {"id":18,
     "name":"2en1",
     "qty":20,
     "price":1740,
@@ -179,7 +161,7 @@
     "stock":50,
     "image":"./img/2en1.jpg"
   },
-  {"id":21,
+  {"id":19,
     "name":"Sellajuntas",
     "qty":20,
     "price":1115,
@@ -187,5 +169,23 @@
     "type":"Sellajuntas",
     "stock":50,
     "image":"./img/Sellajuntas.jpg"
+  },
+  {"id":20,
+    "name":"Moldura 9",
+    "height":0.04,
+    "width":0.05,
+    "price":195,
+    "type":"Moldura",
+    "stock":50,
+    "image":"./img/Moldura 9 diseño.jpg"
+  },
+  {"id":21,
+    "name":"Moldura 13",
+    "height":0.04,
+    "width":0.05,
+    "price":195,
+    "type":"Moldura",
+    "stock":50,
+    "image":"./img/Moldura 13 diseño.jpg"
   }
 ]

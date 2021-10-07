@@ -1,45 +1,30 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
+import { Row } from 'react-bootstrap';
 import Item from './Item';
-import Loader from "react-loader-spinner";
+import ItemDetailContainer from './ItemDetailContainer';
 
 
-const ItemList = ({addCart}) => {
-  const [items, setitems] = useState([]);
-  const [loading, setloading] = useState(true)
+const ItemList = ({addCart, items}) => {
+  const [itemId, setitemId] = useState(0);
 
-  const showItems = async () => {
-    
-    try {
-      const res = await axios.get("./products.json");
-      const resArray = res.data;
-      setitems(resArray);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-  
-  useEffect(()=>{
-    showItems();
-    setTimeout( setloading(false), 3000 )   
-  }, [])
-  
+  const getId = (id) => {
+    setitemId(id)
+  };
+
+
   return (
     <>
-      {loading 
+      {itemId === 0
       ? 
-        <Loader
-        type="Puff"
-        color="#00BFFF"
-        height={100}
-        width={100}
-        timeout={3000} //3 secs
-        /> 
-      : 
-      <Item addCart={addCart} items={items}/>}
-      
+      <Row xs={1} md={4} className="g-4">
+        {items.map((item=> ( <Item key={item.id} item={item} addCart={addCart} getId={getId} itemId={itemId}/>))) }
+        
+      </Row>
+      :
+      <ItemDetailContainer items={items} itemId={itemId} />
+      }
     </>
-  );
+  )
 }
 
-export default ItemList;
+export default ItemList
