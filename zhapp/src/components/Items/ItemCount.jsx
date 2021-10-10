@@ -18,10 +18,10 @@ const ItemCount = ({onAdd, stock}) => {
     }
   }
   return (
-    <ButtonGroup aria-label="Basic example">
-      <Button variant="secondary" onClick={() => remove()} disabled= {qAdd===1||qAdd===0?true:null}> <BagDash size={22} /> </Button>
+    <ButtonGroup size="sm">
+      <Button variant="secondary" onClick={() => remove()} disabled= {qAdd===1||qAdd===0?true:null}> <BagDash size={18} /> </Button>
       <Button variant="secondary" onClick={() => onAdd(qAdd)} disabled= {qAdd===0?true:null}>Add {qAdd}</Button>
-      <Button variant="secondary" onClick={() => add()} disabled= {qAdd===stock?true:null}> <BagPlus size={22} /> </Button>
+      <Button variant="secondary" onClick={() => add()} disabled= {qAdd===stock?true:null}> <BagPlus size={18} /> </Button>
     </ButtonGroup>
   )
 }
