@@ -4,10 +4,11 @@ import ItemDetailContainer from '../Items/ItemDetailContainer';
 
 const DetailPage = ({items}) => {
   let {id} = useParams();
-
+  let idN = parseInt(id)
+  
   return (
     <>
-      <ItemDetailContainer id={id} items={items}/>
+      <ItemDetailContainer id={idN} items={items}/>
     </>
   );
 }

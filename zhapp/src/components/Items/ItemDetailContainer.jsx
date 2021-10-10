@@ -6,7 +6,7 @@ const ItemDetailContainer = ({items, id}) => {
   const [itemIdFind, setitemIdFind] = useState(null);
    
   const getItem = () => {
-    setitemIdFind(items.find((item) => item.id == id))
+    setitemIdFind(items.find((item) => item.id === id))
   };
 
 
