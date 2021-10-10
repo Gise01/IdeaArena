@@ -1,7 +1,5 @@
 import React from 'react'
-import Navbar from 'react-bootstrap/Navbar'
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
+import {Navbar, NavDropdown, Container, Nav} from 'react-bootstrap'
 import CartWidget from '../Assets/CartWidget';
 import { Link } from 'react-router-dom';
 
@@ -23,6 +21,12 @@ const NavBar = ({qBuy}) => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Link to="/productos" className="nav-link" tabIndex="0">Productos</Link>
+            <NavDropdown title="Categorias" id="navbarScrollingDropdown" bg="secondary">
+              <Link to="/categorias/Revestimiento" className="dropdown-item">Revestimiento</Link>
+              <Link to="/categorias/Cielorraso" className="dropdown-item">Cielorraso</Link>
+              <Link to="/categorias/Guarda" className="dropdown-item">Guarda</Link>
+              <Link to="/categorias/Adicionales" className="dropdown-item">Adicionales</Link>
+            </NavDropdown>
             <Link to="/cotizador" className="nav-link" tabIndex="0">Cotizador</Link>
             <Link to="/contacto" className="nav-link" tabIndex="0">Contacto</Link>
           </Nav>

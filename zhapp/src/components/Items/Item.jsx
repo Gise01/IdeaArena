@@ -1,4 +1,4 @@
-import React, { useEffect }from 'react';
+import React from 'react';
 import { Card, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 import ItemCount from './ItemCount'
@@ -21,7 +21,7 @@ const Item = ({addCart, item}) => {
           <Card.Title style={{color: "black"}}>{name}</Card.Title>
           <Card.Text style={{color: "black"}}>
             <strong>Categoria:</strong> {type} <br></br>
-            <strong>Precio:</strong> ${price} 
+            <strong>Precio:</strong> $ {price} 
           </Card.Text>
           <Card.Footer>
             <ItemCount 
@@ -31,7 +31,6 @@ const Item = ({addCart, item}) => {
         </Card.Body>
       </Card>
     </Col>
-    
   );
 }
 

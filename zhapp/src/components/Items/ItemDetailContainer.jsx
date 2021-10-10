@@ -2,33 +2,36 @@ import React, { useState, useEffect } from 'react';
 import ItemDetail from './ItemDetail';
 import Loader from "react-loader-spinner";
 
-const ItemDetailContainer = ({items, itemId}) => {
-  const [itemIdFind, setitemIdFind] = useState(0);
-  
+const ItemDetailContainer = ({items, id}) => {
+  const [itemIdFind, setitemIdFind] = useState(null);
+   
   const getItem = () => {
-    const itemFind = items.find(item =>item.id === itemId)
-    setitemIdFind(itemFind)
+    setitemIdFind(items.find((item) => item.id == id))
   };
 
+
   useEffect(() => {
-    setTimeout(getItem(), 6000)
+    setTimeout(getItem, 2000)
   }, [])
   
-  console.log(itemIdFind);
-
+  
   return (
     <>
-      {itemIdFind === 0 
+      {itemIdFind  
       ? 
-      <Loader
+      <ItemDetail itemIdFind={itemIdFind}/>
+      :
+      <>
+        <Loader
         type="Puff"
-        color="#00BFFF"
+        color="#FFFFFF"
         height={100}
         width={100}
-        timeout={5000} 
-      /> 
-      : 
-      <ItemDetail itemIdFind={itemIdFind}/>}
+        timeout={5000}
+        />
+        <div><h4 color="white">Cargando...</h4></div> 
+      </> 
+      }
     </>
   );
 }

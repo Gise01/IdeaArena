@@ -1,51 +1,36 @@
-import React, { useState, useEffect } from 'react';
-import Layout from '../Layout/Layout';
+import React, { useEffect, useState } from 'react';
 import ItemList from './ItemList';
-import axios from 'axios';
 import './ItemsListContainer.css';
 import Loader from "react-loader-spinner";
 
-const ItemsListContainer = ({greeting, addCart, qBuy}) => {
-
-  const [items, setitems] = useState([]);
-  const [loading, setloading] = useState(true)
-
-  const showItems = async () => {
-    try {
-      const res = await axios.get("./products.json");
-      const resArray = res.data;
-      setitems(resArray);
-      
-    } catch (error) {
-      console.log(error);
-    }
-    
-  }
-  /* useEffect(() => {
-    setTimeout(setloading(false), 5000);
-  }, []) */
+const ItemsListContainer = ({greeting, addCart, items}) => {
+  const [loading, setloading] = useState(false);
+  
+  const changeLoad = () => setloading(true);
 
   useEffect(()=>{ 
-    setTimeout(setloading(false), 5000);
-    showItems()
-  }, [loading]);
+    setTimeout(changeLoad, 2000);
+  }, []);
   
   return (
-    <Layout qBuy={qBuy}>
+    <>
       <h3>Estos son nuestros {greeting}</h3>
       {loading 
       ? 
+      <ItemList addCart={addCart} items={items}/>
+      : 
+      <>
         <Loader
         type="Puff"
-        color="#00BFFF"
+        color="#FFFFFF"
         height={100}
         width={100}
         timeout={5000}
-        /> 
-      : 
-        <ItemList addCart={addCart} items={items}/>
+        />
+        <div><h4 color="white">Cargando...</h4></div> 
+      </>
       }
-    </Layout>
+    </>
 
   );
 }
