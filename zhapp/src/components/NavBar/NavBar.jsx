@@ -20,7 +20,6 @@ const NavBar = ({qBuy}) => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Link to="/productos" className="nav-link" tabIndex="0">Productos</Link>
             <NavDropdown title="Categorias" id="navbarScrollingDropdown" bg="secondary">
               <Link to="/categorias/Revestimiento" className="dropdown-item">Revestimiento</Link>
               <Link to="/categorias/Cielorraso" className="dropdown-item">Cielorraso</Link>

@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router';
+
 import ItemDetail from './ItemDetail';
 import Loader from "react-loader-spinner";
 
-const ItemDetailContainer = ({items, id}) => {
+const ItemDetailContainer = ({items, addCart}) => {
   const [itemIdFind, setitemIdFind] = useState(null);
+
+  let {id} = useParams();
+  let idN = parseInt(id)
    
   const getItem = () => {
-    setitemIdFind(items.find((item) => item.id === id))
+    setitemIdFind(items.find((item) => item.id === idN))
   };
 
 
@@ -19,7 +24,7 @@ const ItemDetailContainer = ({items, id}) => {
     <>
       {itemIdFind  
       ? 
-      <ItemDetail itemIdFind={itemIdFind}/>
+      <ItemDetail itemIdFind={itemIdFind} addCart={addCart}/>
       :
       <>
         <Loader

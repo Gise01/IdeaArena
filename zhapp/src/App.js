@@ -1,14 +1,13 @@
 import React, { useState, useEffect }from 'react';
 import axios from 'axios';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
 import NavBar from '../src/components/NavBar/NavBar';
 import Footer from '../src/components/Footer/Footer';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import DetailPage from './components/Pages/DetailPage';
-import Home from './components/Pages/Home';
-import CategoryPage from './components/Pages/CategoryPage';
-import ItemsPage from './components/Pages/ItemsPage';
+import ItemsListContainer from './components/Items/ItemsListContainer';
+import ItemDetailContainer from './components/Items/ItemDetailContainer';
 
 function App() {
   const [items, setitems] = useState([]);
@@ -21,6 +20,7 @@ function App() {
       console.log(error);
     }  
   }
+
   useEffect(()=>{ 
     setTimeout(showItems, 2000);
   }, []);
@@ -36,21 +36,27 @@ function App() {
         <NavBar qBuy={qBuy}/>
           <Switch>
             <Route exact path="/">
-              <Home />
-            </Route>
-            <Route exact path="/productos">
-              <ItemsPage items={items} addCart={addCart}/>
+            <ItemsListContainer items={items} greeting="productos" addCart={addCart}/>
             </Route>
             <Route exact path="/categorias/:categorias">
-              <CategoryPage addCart={addCart} items={items} />
+              <ItemsListContainer addCart={addCart} items={items} greeting="productos segun categoria"/>
             </Route>
             <Route exact path="/productos/:id">
-              <div>Entobces</div>
-              <DetailPage items={items}/>
+              <ItemDetailContainer items={items} addCart={addCart}/>
             </Route>
             <Route exact path="/cotizador">
               <div>
                 ESTO ES EL COTIZADOR
+              </div>
+            </Route>
+            <Route exact path="/contacto">
+              <div>
+                ESTO ES EL FORMULARIO DE CONTACTO
+              </div>
+            </Route>
+            <Route exact path="/cart">
+              <div>
+                ESTO ES EL CARRITO
               </div>
             </Route>
           </Switch>
