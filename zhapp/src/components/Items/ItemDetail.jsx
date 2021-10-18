@@ -20,7 +20,10 @@ const ItemDetail = ({itemIdFind}) => {
     } else {
       let idDouble = cartList.find(item => item.item.id === itemIdFind.id)
       if (idDouble) {
-        alert("este producto ya fue agregado previamente")
+        alert (`Ud agrego ${qty} unidades al carrito`);
+        addCart(qty);
+        idDouble.cantidad = idDouble.cantidad+qty;
+        setSale(true);
       } else {
         alert (`Ud agrego ${qty} unidades al carrito`);
         addCart(qty);
@@ -29,8 +32,6 @@ const ItemDetail = ({itemIdFind}) => {
       }
     }
   }
-
-  console.log(cartList);
 
   const [sale, setSale] = useState(false);
 
