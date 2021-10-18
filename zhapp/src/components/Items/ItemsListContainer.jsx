@@ -5,15 +5,13 @@ import ItemList from './ItemList';
 import './ItemsListContainer.css';
 import Loader from "react-loader-spinner";
 
-const ItemsListContainer = ({greeting, addCart, items}) => {
+const ItemsListContainer = ({greeting, items}) => {
   const [loading, setloading] = useState(false);
   
   const changeLoad = () => setloading(true);
 
   let {categorias} = useParams();
-  console.log(categorias);
-
-
+  
   useEffect(()=>{ 
     setTimeout(changeLoad, 2000);
   }, []);
@@ -23,7 +21,7 @@ const ItemsListContainer = ({greeting, addCart, items}) => {
       <h3>Estos son nuestros {greeting}</h3>
       {loading 
       ? 
-      <ItemList addCart={addCart} items={items} categorias={categorias}/>
+      <ItemList items={items} categorias={categorias}/>
       : 
       <>
         <Loader

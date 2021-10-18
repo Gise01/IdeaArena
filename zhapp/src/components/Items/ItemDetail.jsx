@@ -1,17 +1,24 @@
 import React, { useState } from 'react';
 import { Card, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { useCartContext } from '../Context/CartContext';
 
-import ItemCount from './ItemCount'
+import ItemCount from './ItemCount';
 
-const ItemDetail = ({itemIdFind, addCart}) => {
+
+const ItemDetail = ({itemIdFind}) => {
   const {name, type, price, image, stock} = itemIdFind
+
+  const {cartList, addItem, addCart} = useCartContext();  
 
   const onAdd = (qty) => {
     alert (`Ud agrego ${qty} unidades al carrito`);
     addCart(qty);
-    setSale(true)
+    setSale(true);
+    addItem({item: itemIdFind, cantidad: qty})
   }
+
+  console.log(cartList);
 
   const [sale, setSale] = useState(false);
 
@@ -26,7 +33,7 @@ const ItemDetail = ({itemIdFind, addCart}) => {
               {type} {name} fabricado con materiales de primera calidad. Ideales para solucionar el problema de humedad de su casa. Cada unidad cuesta $ {price}. Diseños exclusivos que embellecen los ambientes
             </Card.Text>
             <Card.Footer>
-              <Link to="/productos" className="btn btn-secondary">Volver a productos</Link>
+              <Link to="/" className="btn btn-secondary">Volver a productos</Link>
               <Link to={`/categorias/${type}`} className="btn btn-secondary">Volver a {type}</Link>
               {sale
               ?

@@ -4,7 +4,7 @@ import { Row } from 'react-bootstrap';
 import Item from './Item';
 
 
-const ItemList = ({addCart, items, categorias}) => {
+const ItemList = ({items, categorias}) => {
    
   const [itemsCat, setitemsCat] = useState ([]);
   
@@ -17,11 +17,11 @@ const ItemList = ({addCart, items, categorias}) => {
       { itemsCat.length === 0
       ?
       <Row xs={1} md={4} className="g-4">
-        {items.map((item=> ( <Item key={item.id} item={item} addCart={addCart}/>))) }
+        {items.map((item=> ( <Item key={item.id} item={item}/>))) }
       </Row>
       :
       <Row xs={1} md={4} className="g-4">
-        {itemsCat.map((item=> ( <Item key={item.id} item={item} addCart={addCart}/>))) }
+        {itemsCat.map((item=> ( <Item key={item.id} item={item}/>))) }
       </Row>
       } 
     </>

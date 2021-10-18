@@ -2,8 +2,10 @@ import React from 'react';
 import { Cart2 } from 'react-bootstrap-icons';
 import { Link } from 'react-router-dom';
 
-const CartWidget = ({qBuy}) => {
-  
+import { useCartContext } from '../Context/CartContext';
+
+const CartWidget = () => {
+  const {qBuy} = useCartContext();
 
   return (
     <Link to="/cart">

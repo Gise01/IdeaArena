@@ -2,15 +2,8 @@ import React from 'react';
 import { Card, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 
-import ItemCount from './ItemCount'
-
-const Item = ({addCart, item}) => {
-  const {name, image, stock, type, price, id} = item;
-
-  const onAdd = (qty) => {
-    alert (`Ud agrego ${qty} unidades al carrito`);
-    addCart(qty);
-  }
+const Item = ({item}) => {
+  const {name, image, type, price, id} = item;
 
   return (
     <Col>

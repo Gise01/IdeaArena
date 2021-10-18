@@ -1,9 +1,10 @@
 import React from 'react'
 import {Navbar, NavDropdown, Container, Nav} from 'react-bootstrap'
-import CartWidget from '../Assets/CartWidget';
 import { Link } from 'react-router-dom';
 
-const NavBar = ({qBuy}) => {
+import CartWidget from '../Assets/CartWidget';
+
+const NavBar = () => {
   return (
     <Navbar collapseOnSelect expand="lg" bg="secondary" variant="dark">
       <Container>
@@ -30,7 +31,7 @@ const NavBar = ({qBuy}) => {
             <Link to="/contacto" className="nav-link" tabIndex="0">Contacto</Link>
           </Nav>
         </Navbar.Collapse>
-        <CartWidget qBuy={qBuy}/>
+        <CartWidget />
       </Container>
     </Navbar>
   )

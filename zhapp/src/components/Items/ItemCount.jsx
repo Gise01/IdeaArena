@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { Button, Stack } from 'react-bootstrap';
 import { BagDash, BagPlus } from 'react-bootstrap-icons';
 
-const ItemCount = ({onAdd, stock}) => {
+const ItemCount = ({stock, onAdd}) => {
   let initial = 0
   if (stock>0) {initial = 1};
-  
+
   const [qAdd, setqAdd] = useState(initial);
   const remove = () => {
     if (qAdd > 1) {
