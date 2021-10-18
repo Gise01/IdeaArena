@@ -12,10 +12,22 @@ const ItemDetail = ({itemIdFind}) => {
   const {cartList, addItem, addCart} = useCartContext();  
 
   const onAdd = (qty) => {
-    alert (`Ud agrego ${qty} unidades al carrito`);
-    addCart(qty);
-    setSale(true);
-    addItem({item: itemIdFind, cantidad: qty})
+    if (cartList.length === 0) {
+      alert (`Ud agrego ${qty} unidades al carrito`);
+      addCart(qty);
+      setSale(true);
+      addItem({item: itemIdFind, cantidad: qty})
+    } else {
+      let idDouble = cartList.find(item => item.item.id === itemIdFind.id)
+      if (idDouble) {
+        alert("este producto ya fue agregado previamente")
+      } else {
+        alert (`Ud agrego ${qty} unidades al carrito`);
+        addCart(qty);
+        setSale(true);
+        addItem({item: itemIdFind, cantidad: qty})
+      }
+    }
   }
 
   console.log(cartList);
