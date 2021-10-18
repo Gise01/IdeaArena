@@ -16,7 +16,7 @@ const Cart = () => {
     <>
       {cartList.length === 0
       ?
-      <h3>Aun no has seleccionado artílos para tu compra</h3>
+      <h3>Aun no has seleccionado artículos para tu compra</h3>
       :
       <>
         <Table striped bordered hover variant="dark">
