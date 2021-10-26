@@ -23,9 +23,17 @@ const CartContextProvider = ({children}) => {
     setqBuy(0)
   }
 
+  const deleteItem = (id) => {
+    let item = cartList.find(item => item.item.id === id);
+    let index = cartList.indexOf(item);
+    cartList.splice(index,1);
+    setqBuy (qBuy-item.cantidad)
+    setcartList([...cartList])
+  }
+
   return (
     <>
-      <CartContext.Provider value = {{cartList, addItem, deleteCart, addCart, qBuy}}>
+      <CartContext.Provider value = {{cartList, addItem, deleteCart, addCart, qBuy, deleteItem}}>
         {children}
       </CartContext.Provider>
     </>
