@@ -6,8 +6,8 @@ import { useCartContext } from '../Context/CartContext';
 import ItemCount from './ItemCount';
 
 
-const ItemDetail = ({itemIdFind}) => {
-  const {name, type, price, image, stock} = itemIdFind
+const ItemDetail = ({itemId}) => {
+  const {name, category, price, image, stock} = itemId
 
   const {cartList, addItem, addCart} = useCartContext();  
 
@@ -16,9 +16,9 @@ const ItemDetail = ({itemIdFind}) => {
       alert (`Ud agrego ${qty} unidades al carrito`);
       addCart(qty);
       setSale(true);
-      addItem({item: itemIdFind, cantidad: qty})
+      addItem({item: itemId, cantidad: qty})
     } else {
-      let idDouble = cartList.find(item => item.item.id === itemIdFind.id)
+      let idDouble = cartList.find(item => item.item.id === itemId.id)
       if (idDouble) {
         alert (`Ud agrego ${qty} unidades al carrito`);
         addCart(qty);
@@ -28,7 +28,7 @@ const ItemDetail = ({itemIdFind}) => {
         alert (`Ud agrego ${qty} unidades al carrito`);
         addCart(qty);
         setSale(true);
-        addItem({item: itemIdFind, cantidad: qty})
+        addItem({item: itemId, cantidad: qty})
       }
     }
   }
@@ -43,11 +43,11 @@ const ItemDetail = ({itemIdFind}) => {
           <Card.Body>
             <Card.Title>{name}</Card.Title>
             <Card.Text>
-              {type} {name} fabricado con materiales de primera calidad. Ideales para solucionar el problema de humedad de su casa. Cada unidad cuesta $ {price}. Diseños exclusivos que embellecen los ambientes
+              {category} {name} fabricado con materiales de primera calidad. Ideales para solucionar el problema de humedad de su casa. Cada unidad cuesta $ {price}. Diseños exclusivos que embellecen los ambientes
             </Card.Text>
             <Card.Footer>
               <Link to="/" className="btn btn-secondary">Volver a productos</Link>
-              <Link to={`/categorias/${type}`} className="btn btn-secondary">Volver a {type}</Link>
+              <Link to={`/categorias/${category}`} className="btn btn-secondary">Volver a {category}</Link>
               {sale
               ?
               <Link to="/cart" className="btn btn-warning">Finalizar Compra</Link>

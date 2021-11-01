@@ -3,7 +3,8 @@ import { Card, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 
 const Item = ({item}) => {
-  const {name, image, type, price, id} = item;
+  const {name, image, category, price, id} = item;
+  console.log(item);
 
   return (
     <Col>
@@ -14,7 +15,7 @@ const Item = ({item}) => {
         <Card.Body>
           <Card.Title style={{color: "black"}}>{name}</Card.Title>
           <Card.Text style={{color: "black"}}>
-            <strong>Categoria:</strong> {type} <br></br>
+            <strong>Categoria:</strong> {category} <br></br>
             <strong>Precio:</strong> $ {price} 
           </Card.Text>
         </Card.Body>

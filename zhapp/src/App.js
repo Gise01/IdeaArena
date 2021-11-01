@@ -1,5 +1,4 @@
-import React, { useState, useEffect }from 'react';
-import axios from 'axios';
+import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import NavBar from '../src/components/NavBar/NavBar';
@@ -12,21 +11,7 @@ import CartContextProvider from './components/Context/CartContext';
 import Cart from './components/Cart/Cart';
 
 function App() {
-  const [items, setitems] = useState([]);
-  
-  const showItems = async () => {
-    try {
-      const res = await axios.get("/products.json");
-      setitems(res.data);
-    } catch (error) {
-      console.log(error);
-    }  
-  }
-
-  useEffect(()=>{ 
-    setTimeout(showItems, 2000);
-  }, []);
- 
+   
   return (
     <div className="App">
       <CartContextProvider>
@@ -34,13 +19,13 @@ function App() {
           <NavBar />
             <Switch>
               <Route exact path="/">
-              <ItemsListContainer items={items} greeting="productos" />
+              <ItemsListContainer greeting="productos" />
               </Route>
               <Route exact path="/categorias/:categorias">
-                <ItemsListContainer items={items} greeting="productos segun categoria"/>
+                <ItemsListContainer greeting="productos segun categoria"/>
               </Route>
               <Route exact path="/productos/:id">
-                <ItemDetailContainer items={items} />
+                <ItemDetailContainer />
               </Route>
               <Route exact path="/cotizador">
                 <div>

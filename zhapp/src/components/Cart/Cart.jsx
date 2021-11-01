@@ -48,7 +48,7 @@ const Cart = () => {
           {cartList.map((item=> ( 
             <tr key={item.item.id}>
               <td>{item.cantidad}</td>
-              <td>{`${item.item.type} ${item.item.name}`}</td>
+              <td>{`${item.item.category} ${item.item.name}`}</td>
               <td>{item.item.price}</td>
               <td>{pxq(item.cantidad,item.item.price)}</td>
               <td><Button variant="danger" onClick={()=>deleteItem(item.item.id)}> <CartX size={18} /> </Button></td>

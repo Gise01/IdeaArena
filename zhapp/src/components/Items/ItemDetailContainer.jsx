@@ -3,28 +3,36 @@ import { useParams } from 'react-router';
 
 import ItemDetail from './ItemDetail';
 import Loader from "react-loader-spinner";
+import { getFirestore } from '../Services/getFirebase';
 
-const ItemDetailContainer = ({items, addCart}) => {
-  const [itemIdFind, setitemIdFind] = useState(null);
-
+const ItemDetailContainer = ({addCart}) => {
+  const [itemIdFind, setitemIdFind] = useState(false);
+  const [itemId, setItemId] = useState({})
   let {id} = useParams();
-  let idN = parseInt(id)
-   
-  const getItem = () => {
-    setitemIdFind(items.find((item) => item.id === idN))
+  const db = getFirestore();
+  
+  console.log(id);
+  const getItem = async() => {
+    try {
+      const res = await db.collection('items').doc(id).get();
+      setItemId({id: res.id, ...res.data()});
+    } catch (error) {
+      console.log(error);
+    }  
+    setitemIdFind(true)
   };
-
-
+  
   useEffect(() => {
-    setTimeout(getItem, 2000)
-  }, [])
+    setitemIdFind(false);
+    getItem();
+  }, [id])
   
   
   return (
     <>
       {itemIdFind  
       ? 
-      <ItemDetail itemIdFind={itemIdFind} addCart={addCart}/>
+      <ItemDetail itemId={itemId} addCart={addCart}/>
       :
       <>
         <Loader
