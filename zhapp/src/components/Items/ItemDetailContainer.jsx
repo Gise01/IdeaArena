@@ -7,11 +7,13 @@ import { getFirestore } from '../Services/getFirebase';
 
 const ItemDetailContainer = ({addCart}) => {
   const [itemIdFind, setitemIdFind] = useState(false);
-  const [itemId, setItemId] = useState({})
-  let {id} = useParams();
-  const db = getFirestore();
   
-  console.log(id);
+  const [itemId, setItemId] = useState({})
+  
+  let {id} = useParams();
+  
+  const db = getFirestore();
+
   const getItem = async() => {
     try {
       const res = await db.collection('items').doc(id).get();

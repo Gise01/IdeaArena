@@ -23,7 +23,7 @@ const ItemsListContainer = ({greeting}) => {
       }  
     } else {
       try {
-        const res = await db.collection('items').get();
+        const res = await db.collection('items').orderBy('category', 'desc').get();
         setitems(res.docs.map(item => ({id: item.id, ...item.data()})));
       } catch (error) {
         console.log(error);
@@ -31,8 +31,6 @@ const ItemsListContainer = ({greeting}) => {
     }
     setTimeout(changeLoad, 2000)
   }
-
-  console.log(items);
 
   useEffect(()=>{
     setloading(false);

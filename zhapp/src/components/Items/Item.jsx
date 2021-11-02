@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 const Item = ({item}) => {
   const {name, image, category, price, id} = item;
-  console.log(item);
 
   return (
     <Col>

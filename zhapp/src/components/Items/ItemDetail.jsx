@@ -7,7 +7,7 @@ import ItemCount from './ItemCount';
 
 
 const ItemDetail = ({itemId}) => {
-  const {name, category, price, image, stock} = itemId
+  const {name, category, price, image, stock, description} = itemId
 
   const {cartList, addItem, addCart} = useCartContext();  
 
@@ -43,7 +43,7 @@ const ItemDetail = ({itemId}) => {
           <Card.Body>
             <Card.Title>{name}</Card.Title>
             <Card.Text>
-              {category} {name} fabricado con materiales de primera calidad. Ideales para solucionar el problema de humedad de su casa. Cada unidad cuesta $ {price}. Diseños exclusivos que embellecen los ambientes
+              {description} Cada unidad cuesta $ {price}. Diseños exclusivos que embellecen los ambientes
             </Card.Text>
             <Card.Footer>
               <Link to="/" className="btn btn-secondary">Volver a productos</Link>
