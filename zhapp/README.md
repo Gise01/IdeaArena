@@ -26,8 +26,6 @@ _Que cosas necesitas para instalar el software y como instalarlas_
 
 ## Construido con 🛠️
 
-_Menciona las herramientas que utilizaste para crear tu proyecto_
-
 * [Bootstrap _v ^5.1.3_ / React Bootstrap _v ^2.0.2_  / React Bootstrap Icons _v ^1.5.0_ ](https://react-bootstrap.github.io/) - framework CSS  e iconos utilizados
 * [Firebase _v ^8.9.1_](https://firebase.google.com/) - utilizado como proveedor de base de datos
 * [Formik _v ^2.2.9_ y Yup _v ^0.32.11_](https://formik.org/) - manejo y validación de formularios
@@ -35,7 +33,5 @@ _Menciona las herramientas que utilizaste para crear tu proyecto_
 * [Loader-Spinner _v ^4.0.0_](https://www.npmjs.com/package/react-loader-spinner) - animación de espera
 
 ## Autores ✒️
-
-_Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
 
 * **Gisela Arena** - *Desarrollo completo* - [Gise Arena](https://github.com/Gise01)
