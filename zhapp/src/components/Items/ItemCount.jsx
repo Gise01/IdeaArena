@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Stack } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { BagDash, BagPlus } from 'react-bootstrap-icons';
 
 const ItemCount = ({stock, onAdd}) => {
@@ -19,11 +19,12 @@ const ItemCount = ({stock, onAdd}) => {
   }
   return (
     <>
-      <Stack direction="horizontal" gap={4} className="justify-content-md-center">
+      <label style={{'color': 'black', 'display': 'block'}} >Stock: {stock}</label>
+      <div className="justify-content-md-center">
         <Button variant="secondary" onClick={() => remove()} disabled= {qAdd===1||qAdd===0?true:null}> <BagDash size={18} /> </Button>
-        <span mx-auto>{qAdd}</span>
+        <input type="text" value={qAdd} style={{'width': '50px', 'marginLeft': '5px', 'marginRight': '5px'}} />
         <Button variant="secondary" onClick={() => add()} disabled= {qAdd===stock?true:null}> <BagPlus size={18} /> </Button>
-      </Stack>
+      </div>
       <Button variant="warning" onClick={() => onAdd(qAdd)} disabled= {qAdd===0?true:null}>Comprar</Button>
     </>
   )

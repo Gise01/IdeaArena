@@ -41,9 +41,9 @@ function App() {
                 <Cart />
               </Route>
             </Switch>
-          <Footer />
         </Router>
       </CartContextProvider>
+      <Footer />
     </div>
   );
 }

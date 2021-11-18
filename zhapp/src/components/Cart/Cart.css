@@ -1,3 +1,33 @@
 h3{
   color: antiquewhite;
+  margin-top: 15px;
+}
+
+.cart {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 1000px){
+  .cart{
+    display: flex;
+  }
+  .cartForm{
+    width: 50%;
+    margin-top: 30px;
+    border-radius: 20px;
+    border-color: antiquewhite;
+    border-style: double;
+    padding: 10px;
+    
+  }
+  .cartTable{
+    width: 50%;
+    margin-top: 30px;
+    padding: 10px;
+  }
+
 }

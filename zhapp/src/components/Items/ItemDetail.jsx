@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Card, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useCartContext } from '../Context/CartContext';
+import Swal from 'sweetalert2';
 
 import ItemCount from './ItemCount';
 
@@ -13,19 +14,19 @@ const ItemDetail = ({itemId}) => {
 
   const onAdd = (qty) => {
     if (cartList.length === 0) {
-      alert (`Ud agrego ${qty} unidades al carrito`);
+      Swal.fire(`Ud agrego ${qty} unidades al carrito`);
       addCart(qty);
       setSale(true);
       addItem({item: itemId, cantidad: qty})
     } else {
       let idDouble = cartList.find(item => item.item.id === itemId.id)
       if (idDouble) {
-        alert (`Ud agrego ${qty} unidades al carrito`);
+        Swal.fire(`Ud agrego ${qty} unidades al carrito`);
         addCart(qty);
         idDouble.cantidad = idDouble.cantidad+qty;
         setSale(true);
       } else {
-        alert (`Ud agrego ${qty} unidades al carrito`);
+        Swal.fire(`Ud agrego ${qty} unidades al carrito`);
         addCart(qty);
         setSale(true);
         addItem({item: itemId, cantidad: qty})
@@ -37,7 +38,7 @@ const ItemDetail = ({itemId}) => {
 
   return (
     <>
-      <Container>
+      <Container style={{'marginBottom': '100px', 'marginTop': '20px'}}>
         <Card style={{ width: '20rem' }}>
           <Card.Img variant="top" src={image} />
           <Card.Body>

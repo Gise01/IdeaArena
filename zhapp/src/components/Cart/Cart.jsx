@@ -1,13 +1,13 @@
-import React from 'react';
-import { Button, Table } from 'react-bootstrap';
-import { CartX } from 'react-bootstrap-icons';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import firebase from 'firebase';
-
+import Swal from 'sweetalert2';
 
 import { useCartContext } from '../Context/CartContext';
-import './Cart';
+import './Cart.css';
 import { getFirestore } from '../Services/getFirebase';
+import CartTable from './CartTable';
+import CartForm from './CartForm';
 
 const Cart = () => {
   const {cartList, deleteCart, deleteItem, totalPxQ} = useCartContext();
@@ -15,11 +15,13 @@ const Cart = () => {
   const pxq = (a,b) => {
     return a*b
   }
+
+  const [dataForm, setDataForm] = useState({});
  
-  const buy = () => {
+  const buy = (dataForm) => {
     let order = {};
     order.date = firebase.firestore.Timestamp.fromDate(new Date());
-    order.buyer = {name: 'Juan Perez', email:'juan@perez,com.ar', phone: 1555550000, payment:'cash'};
+    order.buyer = {name: dataForm.fullName, email:dataForm.email, phone: dataForm.phone, payment:dataForm.payment};
     order.total = totalPxQ();
     order.items = cartList.map(cartItem => {
       const id = cartItem.item.id;
@@ -29,22 +31,26 @@ const Cart = () => {
 
       return {id, item, price, quant}
     })
-
+    
     const dbOrder = getFirestore();
     
     const orderReady = dbOrder.collection('orders')
     orderReady.add(order)
     .then((IdDocumento)=>{
-      setTimeout(alert(`Su orden ${IdDocumento.id} esta siendo procesada`), 3000)
+      Swal.fire({
+        icon: 'info',
+        title: `Su orden ${IdDocumento.id} se proceso correctamente, gracias por habernos elegido`,
+        showConfirmButton: false,
+        timer: 3000
+      })
     })
     .catch(error => {
       console.log(error)
     })
     .finally(()=>{
-      alert('Su compra ha finalizado de manera exitosa')
+      deleteCart();
     })
     
-    deleteCart();
 
     const updateItems = dbOrder.collection('items').where(firebase.firestore.FieldPath.documentId(), 'in', cartList.map(i => i.item.id));
 
@@ -76,35 +82,15 @@ const Cart = () => {
       </>
       :
       <>
-      <Table striped bordered hover variant="dark">
-        <thead>
-          <tr>
-            <th>Cantidad</th>
-            <th>Producto</th>
-            <th>Precio</th>
-            <th>Total</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {cartList.map((item=> ( 
-            <tr key={item.item.id}>
-              <td>{item.cantidad}</td>
-              <td>{`${item.item.category} ${item.item.name}`}</td>
-              <td>{item.item.price}</td>
-              <td>{pxq(item.cantidad,item.item.price)}</td>
-              <td><Button variant="danger" onClick={()=>deleteItem(item.item.id)}> <CartX size={18} /> </Button></td>
-            </tr>
-          ))) }
-          <tr>
-            <td></td>
-            <td colSpan="2">TOTAL</td>
-            <td>$ {totalPxQ()}</td>
-          </tr>
-        </tbody>
-      </Table>
-      <Button onClick={deleteCart} variant="danger">Eliminar Carrito</Button>{' '}    
-      <Button onClick={buy} variant="success">Terminar Compra</Button>
+      <h3>Su compra incluye</h3>
+      <div className="cart">
+        <div className="cartTable">
+          <CartTable cartList={cartList} deleteItem={deleteItem} totalPxQ={totalPxQ} pxq={pxq} />
+        </div>
+        <div className="cartForm">
+          <CartForm buy={buy} deleteCart={deleteCart} setDataForm={setDataForm} dataForm={dataForm}/>
+        </div>
+      </div>
       </>
       }
     </>

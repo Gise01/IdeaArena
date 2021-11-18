@@ -35,6 +35,7 @@ const ItemsListContainer = ({greeting}) => {
   useEffect(()=>{
     setloading(false);
     showItems();
+    // eslint-disable-next-line
   }, [categorias]);
  
   return (

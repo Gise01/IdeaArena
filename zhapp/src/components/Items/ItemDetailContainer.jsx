@@ -27,6 +27,7 @@ const ItemDetailContainer = ({addCart}) => {
   useEffect(() => {
     setitemIdFind(false);
     getItem();
+    // eslint-disable-next-line
   }, [id])
   
   
